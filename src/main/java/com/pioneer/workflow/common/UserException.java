@@ -1,33 +1,35 @@
 package com.pioneer.workflow.common;
 
+/**
+ * 用户自定义的业务以上类
+ *
+ * @author luxinglin
+ * @version 1.0.0
+ * @since 2017/11/03.
+ */
 public class UserException extends RuntimeException {
 
     private static final long serialVersionUID = 4170213429597095681L;
     private String errCode;
 
     public UserException() {
-        // TODO 自动生成的构造函数存根
     }
 
     public UserException(String errCode, String message) {
         super(message);
-        // TODO 自动生成的构造函数存根
         this.errCode = errCode;
     }
 
     public UserException(String message) {
         super(message);
-        // TODO 自动生成的构造函数存根
     }
 
     public UserException(Throwable cause) {
         super(cause);
-        // TODO 自动生成的构造函数存根
     }
 
     public UserException(String message, Throwable cause) {
         super(message, cause);
-        // TODO 自动生成的构造函数存根
     }
 
     public String getErrCode() {

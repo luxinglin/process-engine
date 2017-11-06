@@ -26,9 +26,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("CMDB RESTful APIs")
-                .description("盘古配置管理系统接口文档")
-                .termsOfServiceUrl("luxinglin@pioneerservice.cn")
+                .title("Process-Engine RESTful APIs")
+                .description("Activiti流程引擎接口文档")
+                .termsOfServiceUrl("mail2lxl@qq.com")
                 .contact("Lu, Xing-Lin")
                 .version("1.0")
                 .build();
