@@ -1,15 +1,16 @@
 package com.pioneer.workflow.common;
 
 /**
- * Created by pai on 2017/3/29.
+ * rest接口通用返回对象
+ *
+ * @author luxinglin
+ * @version 1.0.0
+ * @since 2017/3/29.
  */
 public class RestRetn<T> {
     public static final String DUPLICATE = "DUPLICATE";
     public static final String NO_RESULT = "NO RESULT";
-    //public static final String CREATED = "CREATED";
-    //public static final String UPDATED = "UPDATED";
     public static final String NOT_FOUND = "NOT FOUND";
-    //public static final String DELETED = "DELETED";
 
     public static final String SUCCESS = "true";
     protected static final String ERROR = "false";
