@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns:activiti="http://activiti.org/bpmn"
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        targetNamespace="Pioneer">
+    <process id="joinProcess" name="Join process" isExecutable="true">
+        <startEvent id="startevent1" name="Start">
+            <extensionElements>
+                <activiti:formProperty id="personId" name="person id" type="long" required="true">
+                </activiti:formProperty>
+                <activiti:formProperty id="compId" name="company Id"
+                                       type="long" required="true">
+                </activiti:formProperty>
+            </extensionElements>
+        </startEvent>
+
+        <endEvent id="endevent1" name="End"></endEvent>
+
+        <userTask id="ApprovalTask" name="Approval Task"
+                  activiti:candidateUsers="${joinCompService.findUsers(execution)}" isForCompensation="true">
+            <extensionElements>
+                <activiti:formProperty id="joinApproved" name="Join Approved" type="enum">
+                    <activiti:value id="true" name="Approve"></activiti:value>
+                    <activiti:value id="false" name="Reject"></activiti:value>
+                </activiti:formProperty>
+            </extensionElements>
+        </userTask>
+
+        <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="ApprovalTask"></sequenceFlow>
+
+        <serviceTask id="AutoTask" name="Auto Task"
+                     activiti:expression="${joinCompService.joinGroup(execution)}"></serviceTask>
+
+        <sequenceFlow id="flow2" sourceRef="ApprovalTask" targetRef="AutoTask"></sequenceFlow>
+
+        <sequenceFlow id="flow3" sourceRef="AutoTask" targetRef="endevent1"></sequenceFlow>
+    </process>
+</definitions>
