@@ -51,7 +51,6 @@ public class CompRestController {
             System.out.println("User with id " + id + " not found");
             return new ResponseEntity<Comp>(HttpStatus.NOT_FOUND);
         }
-        comp.setPeople(null);
         return new ResponseEntity<Comp>(comp, HttpStatus.OK);
     }
 

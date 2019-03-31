@@ -1,15 +1,19 @@
 package com.pioneer.workflow.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Comp {
+public class Comp implements java.io.Serializable {
     @Id
     @GeneratedValue
     private Long compId;
     private String compName;
+
     @OneToMany(mappedBy = "comp", targetEntity = Person.class, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Person> people;
 
     public Comp(String compName) {

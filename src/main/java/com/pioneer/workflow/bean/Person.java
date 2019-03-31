@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
-public class Person {
+public class Person implements java.io.Serializable {
     @Id
     @GeneratedValue
     private Long personId;
